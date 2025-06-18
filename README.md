@@ -1,36 +1,92 @@
-# Stock-Portfolio-Heatmap-Analyzer
+# 📊 Stock Portfolio Heatmap Analyzer using CNN
 
-This project builds a Convolutional Neural Network (CNN) model that classifies stock correlation heatmaps to help automate financial portfolio allocation decisions. It uses historical stock price data to generate heatmaps of correlations between selected assets, and trains a deep learning model to make binary predictions based on these visual patterns.
+An AI-powered financial analysis tool that uses deep learning (CNN) to analyze correlation heatmaps of selected stock tickers and provide investment recommendations.
+
+## 🚀 Overview
+
+This project helps users visualize the relationship between different stocks using a **correlation heatmap**, then uses a trained **Convolutional Neural Network (CNN)** to analyze the heatmap and suggest whether it's a good time to invest or not.
+
+It combines:
+- 📉 Stock data from [Yahoo Finance](https://finance.yahoo.com)
+- 📊 Correlation analysis and heatmap generation
+- 🤖 Image-based classification using CNN
+- 🌐 Interactive UI built with **Gradio** and optionally extendable to **Streamlit**
 
 ---
 
-## 🚀 Features
+## 📌 Features
 
-- ✅ Fetch historical stock data using `yfinance`
-- 📈 Generate correlation matrices and heatmaps
-- 🧠 Train a CNN model to classify the heatmaps
-- 🔮 Predict labels for new heatmaps using the trained model
-- 📁 Organized folder structure for image storage and labels
-- 🧪 Includes dummy dataset generation for testing/training
+- 📈 **Fetch live stock data** from Yahoo Finance using custom ticker inputs and date ranges
+- 🌡️ **Generate a correlation heatmap** showing how stocks relate
+- 🧠 **CNN-based investment prediction model**
+- 🎨 **Interactive web interface** for real-time analysis
+- 🪙 **Displays current stock prices** of entered tickers
+- 🧪 Easily test with multiple portfolios
 
 ---
 
-## 📦 Requirements
+## 🧠 How It Works
 
-Install dependencies using:
+1. **User Input**: Stock tickers and date range
+2. **Data Fetching**: Download historical adjusted close prices
+3. **Correlation Matrix**: Compute pairwise Pearson correlation between stock returns
+4. **Heatmap Generation**: Visualize correlation matrix as an image
+5. **Prediction**: Pass the heatmap to a CNN model trained to identify patterns that suggest profitable investments
+6. **Output**: 
+   - 📌 Heatmap Image
+   - 💬 Investment Recommendation: `✅ INVEST` or `❌ DO NOT INVEST`
+   - 💵 Current stock prices
 
-```bash
-pip install yfinance numpy pandas seaborn matplotlib tensorflow scikit-learn
+---
 
-🛠️ How It Works
-Data Fetching
-Fetch stock prices using yfinance for a selected date range.
+## 🧪 Sample Inputs
 
-Heatmap Generation
-Compute the correlation matrix from daily returns and visualize it using seaborn.
+Use the following inputs for testing:
+Tickers: INFY.NS, TCS.NS, RELIANCE.NS, HDFCBANK.NS
+Start Date: 2023-01-01
+End Date: 2024-01-01
 
-Model Training
-A CNN is trained using image inputs of the heatmaps and synthetic labels.
+Try entering financial crisis periods like:
+Tickers: AIG, LEH, JPM, MS
+Start Date: 2007-01-01
+End Date: 2009-01-01
 
-Prediction
-The trained CNN can predict labels for new or unseen heatmap images.
+---
+
+## 🔧 Requirements
+
+Install the required libraries:
+
+pip install yfinance seaborn matplotlib tensorflow gradio pandas
+
+---
+
+▶️ Running the App
+For Gradio:
+
+bash
+Copy
+Edit
+python app.py
+For Google Colab:
+
+Upload portfolio_cnn_model.h5 and run all cells
+
+App will launch with public gradio.live link
+
+---
+✅ Future Improvements
+
+🗂️ Save user sessions and prediction history
+🔁 Rolling window dataset creation
+🧮 Multiple ML models to compare
+📊 Display additional financial indicators
+🛠️ Portfolio optimization suggestions
+
+---
+
+📚 License
+This project is under the MIT License.
+
+
+
